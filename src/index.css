@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Portfolio Design System for Dhanush R */
+
+@layer base {
+  :root {
+    /* Light Theme Color Palette */
+    --background: 0 0% 100%;
+    --background-secondary: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    /* Glass morphism backgrounds */
+    --glass-primary: 210 40% 98%;
+    --glass-secondary: 220 14% 96%;
+    --glass-accent: 220 14% 90%;
+
+    /* Primary color palette */
+    --primary: 221.2 83.2% 53.3%;
+    --primary-glow: 221.2 83.2% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-glow: 210 40% 90%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-glow: 210 40% 90%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    /* Required shadcn variables */
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Text colors - Enhanced contrast */
+    --text-primary: 222.2 84% 10%;
+    --text-secondary: 215 32% 27%;
+    --text-muted: 215 25% 40%;
+
+    /* Glass morphism effects */
+    --glass-bg: 0 0% 100% / 0.7;
+    --glass-border: 214.3 31.8% 91.4% / 0.7;
+    --glass-shadow: 215 16% 47% / 0.1;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(221.2 83.2% 53.3%), hsl(217.2 91.2% 59.8%));
+    --gradient-secondary: linear-gradient(135deg, hsl(210 40% 96.1%), hsl(214.3 31.8% 91.4%));
+    --gradient-hero: linear-gradient(135deg, hsl(210 40% 98% / 0.9), hsl(214.3 31.8% 91.4% / 0.8));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100% / 0.9), hsl(210 40% 98% / 0.8));
+
+    /* Interactive states */
+    --hover-glow: 221.2 83.2% 53.3% / 0.1;
+    --focus-ring: 221.2 83.2% 53.3% / 0.2;
+
+    /* Shadows and effects */
+    --shadow-glass: 0 4px 30px rgba(0, 0, 0, 0.05);
+    --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.2);
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+
+    /* Animation timings */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom utility classes for glassmorphism */
+@layer utilities {
+  .glass-panel {
+    background: linear-gradient(135deg, hsl(var(--glass-primary) / 0.3), hsl(var(--glass-secondary) / 0.2));
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--shadow-glass);
+  }
+
+  .glass-card {
+    background: var(--gradient-card);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--shadow-card);
+  }
+
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .hover-glow {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+
+  .parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-secondary {
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* 3D Flip Card Effects */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  /* Smooth Scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Line Clamp Utility */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Floating Label Effects */
+  .floating-label-group {
+    position: relative;
+  }
+
+  .floating-label-group input:focus + label,
+  .floating-label-group input:not(:placeholder-shown) + label,
+  .floating-label-group textarea:focus + label,
+  .floating-label-group textarea:not(:placeholder-shown) + label {
+    transform: translateY(-1.5rem) scale(0.875);
+    color: hsl(var(--primary));
+  }
+}
